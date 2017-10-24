@@ -1,31 +1,48 @@
 
-const h = $('#input_height');
-const w = $('#input_width');
-let color  = $('#colorPicker');
+const heightInput = $('#input_height');
+const widthInput = $('#input_width');
+const colorInput  = $('#colorPicker');
+const canvas = $('#pixel_canvas');
 
+/**
+ * this function will all us to create a grid
+ */
 function makeGrid() {
-	let height = h.val();
-	let width  = w.val();
-	$('#pixel_canvas').empty();
-	
-	for(let row = 0; row < height; row++) {
+	let rowHeight = heightInput.val();
+	let colWidth  = widthInput.val();
+	/** let's clean the canvas on every submit */
+	canvas.empty();
+	/**  here we'll loop through each row and col */
+	for (let row = 0; row < rowHeight; row++) {
 		$('#pixel_canvas').append('<tr></tr>');
-		for (let col = 0; col < width; col++) {
+		for (let col = 0; col < colWidth; col++) {
 			$('tr').last().append('<td></td>');
 		}
 	}
 }; 
-
+/** 
+ * we're going to watch when the submit button
+ * is pushed so we can add color from the color picker
+ */
 $('#sizePicker').submit(function(e){
-	let height = h.val();
-	let width  = w.val();
+	let height = heightInput.val();
+	let width  = widthInput.val();
 	$('#input').next().text();
+	/**
+	 * With the event listener tied to the submit method
+	 * we can listen for a new click and clear the grid
+	 * to make way for a new grid
+	 */
 	e.preventDefault();
-
+	/**
+	 * Here we call the grid function with the submit button
+	 */
 	makeGrid();
-
+	/** 
+	 * Using the click method we can add color
+	 * to each grid box from the color selector
+	 */
 	$('td').click(function(){
-		$(this).css('backgroundColor', $(color).val());
+		$(this).css('backgroundColor', colorInput.val());
 	});
-
 });
