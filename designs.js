@@ -8,8 +8,6 @@ const canvas = $('#pixel_canvas');
  * this function will all us to create a grid
  */
 function makeGrid(height,width) {
-	// let he = heightInput.val();
-	// let colWidth  = widthInput.val();
 	/** let's clean the canvas on every submit */
 	canvas.empty();
 	/**  here we'll loop through each row and col */
@@ -27,7 +25,6 @@ function makeGrid(height,width) {
 $('#sizePicker').submit(function(e){
 	let height = heightInput.val();
 	let width  = widthInput.val();
-	$('#input').next().text();
 	/**
 	 * With the event listener tied to the submit method
 	 * we can listen for a new click and clear the grid
