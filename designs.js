@@ -37,7 +37,7 @@ $('#sizePicker').submit(function(e){
 	makeGrid(height,width);
 });
 /** 
- * Using the click method we can add color
+ * Using the on method with event delegation ,we can add color
  * to each grid box from the color selector
  */
 $canvas.on('click', 'td', function(){
