@@ -7,15 +7,15 @@ const canvas = $('#pixel_canvas');
 /**
  * this function will all us to create a grid
  */
-function makeGrid() {
-	let rowHeight = heightInput.val();
-	let colWidth  = widthInput.val();
+function makeGrid(height,width) {
+	// let he = heightInput.val();
+	// let colWidth  = widthInput.val();
 	/** let's clean the canvas on every submit */
 	canvas.empty();
 	/**  here we'll loop through each row and col */
-	for (let row = 0; row < rowHeight; row++) {
+	for (let row = 0; row < height; row++) {
 		$('#pixel_canvas').append('<tr></tr>');
-		for (let col = 0; col < colWidth; col++) {
+		for (let col = 0; col < width; col++) {
 			$('tr').last().append('<td></td>');
 		}
 	}
@@ -37,7 +37,7 @@ $('#sizePicker').submit(function(e){
 	/**
 	 * Here we call the grid function with the submit button
 	 */
-	makeGrid();
+	makeGrid(height,width);
 	/** 
 	 * Using the click method we can add color
 	 * to each grid box from the color selector
